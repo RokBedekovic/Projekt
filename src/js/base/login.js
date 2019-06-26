@@ -9,8 +9,8 @@ let handleLogin = function(options){
                 
                 $.ajax({
                     crossDomain: true,
-                    url: 'data/login.json',
-                    method: 'POST',
+                    url: '/data/login.json',
+                    method: 'GET',
                     contentType: 'application/json',
                     headers: {
                         'Access-Controll-Allow-Origin': '*'
@@ -26,7 +26,7 @@ let handleLogin = function(options){
                         } else if(data.status == 1){
                             $('#loginModal .loader').append(setAjaxMessage(data.message));
                             setTimeout(function(){
-                                window.location('/admin');
+                                window.location.replace('/admin');
                             }, 2000);
                         }
                     },
